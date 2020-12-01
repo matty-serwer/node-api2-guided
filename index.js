@@ -1,7 +1,8 @@
 const express = require('express');
-
+const cors = require('cors');
 const server = express();
 
+server.use(cors()) // takes care of CORS errors hopefully
 server.use(express.json()); // if req has json in body, it can be parsed and put inside req.body
 
 const Adopter = require('./api/adopters/adopters-model');
