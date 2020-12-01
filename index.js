@@ -13,18 +13,19 @@ const Dog = require('./api/dogs/dogs-model');
 // ADOPTERS ENDPOINTS
 server.get('/api/adopters', (req, res) => {
   // 1- pull stuff from req
-  cons
+  const { query } = req
   // 2- interact with db
-  Adopter.find(req.query)
+  Adopter.find(query)
     .then(stuff => {
+      // 3A- respont appr (happy path)
       res.json(stuff)
     })
     .catch(error => {
-      // why not send back a hard-coded message?
+      // 3B- respont appr (sad path)
+      // in production, do not send actual error
       console.log(error.message)
       res.json(error.message)
     })
-  // 3- respont appr
 });
 
 server.get('/api/adopters/:id', (req, res) => {
