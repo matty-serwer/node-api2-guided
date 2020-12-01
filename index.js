@@ -27,7 +27,12 @@ server.get('/api/adopters', (req, res) => {
       res.json(error.message)
     })
 });
-server.get('/api/adopters' () => {})
+server.get('/api/adopters', async () => {
+  // 1- pull stuff from req
+  const { query } = req
+  // 2- interact with db
+  
+})
 
 server.get('/api/adopters/:id', (req, res) => {
   Adopter.findById(req.params.id)
