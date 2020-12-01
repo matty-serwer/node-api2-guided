@@ -3,7 +3,7 @@ const cors = require('cors');
 const server = express();
 
 // import adopters router into server.js
-const adoptersRouter = require('./adopters/adopters-router')
+const adoptersRouter = require('./adopters/adopters-router');
 
 server.use(cors()) // takes care of CORS errors hopefully
 server.use(express.json()); // if req has json in body, it can be parsed and put inside req.body
