@@ -33,7 +33,7 @@ server.get('/api/adopters', async (req, res) => {
   const { query } = req
   try {
     // 2- interact with db
-    const adopters = await Adopter.find()
+    const adopters = await Adopter.find(query)
     // 3A- respont appr (happy path)
     res.json(adopters)
   } catch (error) {
