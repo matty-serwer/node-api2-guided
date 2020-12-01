@@ -31,12 +31,14 @@ const Dog = require('./api/dogs/dogs-model');
 server.get('/api/adopters', async (req, res) => {
   // 1- pull stuff from req
   const { query } = req
-  // 2- interact with db
   try {
+    // 2- interact with db
     const adopters = await Adopter.find(query)
+    // 3A- respont appr (happy path)
     res.json(adopters)
   } catch (error) {
-
+    // 3B- respont appr (sad path)
+    res.json(error.message)
   }
 })
 
