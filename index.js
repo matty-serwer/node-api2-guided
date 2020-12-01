@@ -15,9 +15,11 @@ server.get('/api/adopters', (req, res) => {
   // 2- interact with db
   Adopter.find()
     .then(stuff => {
-      console.log(stuff)
+      res.json(stuff)
     })
-    .catch()
+    .catch(error => {
+      res.json({ message: error.message })
+    })
   // 3- respont appr
 });
 
