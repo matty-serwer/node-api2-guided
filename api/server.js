@@ -4,28 +4,13 @@ const server = express();
 
 // import adopters router into server.js
 const adoptersRouter = require('./adopters/adopters-router');
+const dogsRouter = require('./dogs/dogs-router');
 
 server.use(cors()) // takes care of CORS errors hopefully
 server.use(express.json()); // if req has json in body, it can be parsed and put inside req.body
 server.use('/api/adopters', adoptersRouter);
+server.use('/api/dogs', dogsRouter);
 
-const Dog = require('./dogs/dogs-model');
-
-// DOGS ENDPOINTS
-// DOGS ENDPOINTS
-// DOGS ENDPOINTS
-server.get('/api/dogs', (req, res) => {
-  Dog.find()
-    .then(dogs => {
-      res.status(200).json(dogs);
-    })
-    .catch(error => {
-      console.log(error);
-      res.status(500).json({
-        message: 'Error retrieving the dogs',
-      });
-    });
-});
 
 // OTHER ENDPOINTS
 // OTHER ENDPOINTS
