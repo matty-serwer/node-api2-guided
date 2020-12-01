@@ -152,3 +152,5 @@ server.get('/', (req, res) => {
     <p>Welcome to the Lambda Shelter API</p>
   `);
 });
+
+module.exports = server
