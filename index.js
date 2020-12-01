@@ -13,6 +13,7 @@ const Dog = require('./api/dogs/dogs-model');
 // ADOPTERS ENDPOINTS
 server.get('/api/adopters', (req, res) => {
   // 1- pull stuff from req
+  cons
   // 2- interact with db
   Adopter.find(req.query)
     .then(stuff => {
