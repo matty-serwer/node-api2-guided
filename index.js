@@ -11,28 +11,28 @@ const Dog = require('./api/dogs/dogs-model');
 // ADOPTERS ENDPOINTS
 // ADOPTERS ENDPOINTS
 // ADOPTERS ENDPOINTS
-server.get('/api/adopters', (req, res) => {
-  // 1- pull stuff from req
-  const { query } = req
-  // 2- interact with db
-  Adopter.find(query)
-    .then(adopters => {
-      // 3A- respont appr (happy path)
-      res.json(adopters)
-    })
-    .catch(error => {
-      // 3B- respont appr (sad path)
-      // in production, do not send actual error
-      console.log(error.message)
-      res.json(error.message)
-    })
-});
+// server.get('/api/adopters', (req, res) => {
+//   // 1- pull stuff from req
+//   const { query } = req
+//   // 2- interact with db
+//   Adopter.find(query)
+//     .then(adopters => {
+//       // 3A- respont appr (happy path)
+//       res.json(adopters)
+//     })
+//     .catch(error => {
+//       // 3B- respont appr (sad path)
+//       // in production, do not send actual error
+//       console.log(error.message)
+//       res.json(error.message)
+//     })
+// });
+
 server.get('/api/adopters', async (req, res) => {
   // 1- pull stuff from req
   const { query } = req
   // 2- interact with db
   const adopters = await Adopter.find(query)
-
   res.json(adopters)
 })
 
