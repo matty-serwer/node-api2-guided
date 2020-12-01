@@ -32,8 +32,12 @@ server.get('/api/adopters', async (req, res) => {
   // 1- pull stuff from req
   const { query } = req
   // 2- interact with db
-  const adopters = await Adopter.find(query)
-  res.json(adopters)
+  try {
+    const adopters = await Adopter.find(query)
+    res.json(adopters)
+  } catch (error) {
+
+  }
 })
 
 server.get('/api/adopters/:id', (req, res) => {
