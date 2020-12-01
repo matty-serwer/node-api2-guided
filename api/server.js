@@ -8,9 +8,9 @@ const dogsRouter = require('./dogs/dogs-router');
 
 server.use(cors()) // takes care of CORS errors hopefully
 server.use(express.json()); // if req has json in body, it can be parsed and put inside req.body
+
 server.use('/api/adopters', adoptersRouter);
 server.use('/api/dogs', dogsRouter);
-
 
 // OTHER ENDPOINTS
 // OTHER ENDPOINTS
