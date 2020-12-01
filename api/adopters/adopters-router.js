@@ -22,6 +22,7 @@ router.get('/', (req, res) => {
     })
 });
 
+// this comes second and will never be used
 router.get('/', async (req, res) => {
   // 1- pull stuff from req
   const { query } = req
