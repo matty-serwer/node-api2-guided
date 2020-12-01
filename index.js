@@ -19,7 +19,8 @@ server.get('/api/adopters', (req, res) => {
     })
     .catch(error => {
       // why not send back a hard-coded message?
-      res.json({ message: error.message })
+      console.log(error.message)
+      res.json(error.message)
     })
   // 3- respont appr
 });
