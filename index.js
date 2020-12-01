@@ -16,9 +16,9 @@ server.get('/api/adopters', (req, res) => {
   const { query } = req
   // 2- interact with db
   Adopter.find(query)
-    .then(stuff => {
+    .then(adopters => {
       // 3A- respont appr (happy path)
-      res.json(stuff)
+      res.json(adopters)
     })
     .catch(error => {
       // 3B- respont appr (sad path)
@@ -27,11 +27,13 @@ server.get('/api/adopters', (req, res) => {
       res.json(error.message)
     })
 });
-server.get('/api/adopters', async () => {
+server.get('/api/adopters', async (req, res) => {
   // 1- pull stuff from req
   const { query } = req
   // 2- interact with db
-  
+  const adopters = await Adopter.find(query)
+
+  res.json(adopters)
 })
 
 server.get('/api/adopters/:id', (req, res) => {
