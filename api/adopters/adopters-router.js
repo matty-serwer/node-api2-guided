@@ -3,22 +3,24 @@ const Adopter = require('./adopters-model');
 
 const router = express.Router();
 
-// router.get('/api/adopters', (req, res) => {
-//   // 1- pull stuff from req
-//   const { query } = req
-//   // 2- interact with db
-//   Adopter.find(query)
-//     .then(adopters => {
-//       // 3A- respont appr (happy path)
-//       res.json(adopters)
-//     })
-//     .catch(error => {
-//       // 3B- respont appr (sad path)
-//       // in production, do not send actual error
-//       console.log(error.message)
-//       res.json(error.message)
-//     })
-// });
+// this one comes first, so it will swallow requests
+// to GET /api/adopters
+router.get('/', (req, res) => {
+  // 1- pull stuff from req
+  const { query } = req
+  // 2- interact with db
+  Adopter.find(query)
+    .then(adopters => {
+      // 3A- respont appr (happy path)
+      res.json(adopters)
+    })
+    .catch(error => {
+      // 3B- respont appr (sad path)
+      // in production, do not send actual error
+      console.log(error.message)
+      res.json(error.message)
+    })
+});
 
 router.get('/', async (req, res) => {
   // 1- pull stuff from req
@@ -84,7 +86,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.delete('/api/adopters/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   Adopter.remove(req.params.id)
     .then(count => {
       if (count > 0) {
@@ -101,7 +103,7 @@ router.delete('/api/adopters/:id', (req, res) => {
     });
 });
 
-router.put('/api/adopters/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   const changes = req.body;
   Adopter.update(req.params.id, changes)
     .then(adopter => {
