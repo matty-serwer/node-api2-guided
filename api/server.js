@@ -4,8 +4,8 @@ const server = express();
 
 server.use(cors()) // takes care of CORS errors hopefully
 server.use(express.json()); // if req has json in body, it can be parsed and put inside req.body
+server.use()
 
-const Adopter = require('./adopters/adopters-model');
 const Dog = require('./dogs/dogs-model');
 
 // DOGS ENDPOINTS
