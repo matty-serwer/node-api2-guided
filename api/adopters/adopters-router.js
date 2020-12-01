@@ -1,6 +1,5 @@
-// ADOPTERS ENDPOINTS
-// ADOPTERS ENDPOINTS
-// ADOPTERS ENDPOINTS
+const Adopter = require('./adopters-model');
+
 // server.get('/api/adopters', (req, res) => {
 //   // 1- pull stuff from req
 //   const { query } = req
