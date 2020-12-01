@@ -27,6 +27,7 @@ server.get('/api/adopters', (req, res) => {
       res.json(error.message)
     })
 });
+server.get('/api/adopters' () => {})
 
 server.get('/api/adopters/:id', (req, res) => {
   Adopter.findById(req.params.id)
