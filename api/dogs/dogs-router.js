@@ -1,6 +1,8 @@
 const express = require('express');
 const Dog = require('./dogs-model');
 
+const router = express.Router();
+
 // DOGS ENDPOINTS
 // DOGS ENDPOINTS
 // DOGS ENDPOINTS
