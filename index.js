@@ -11,16 +11,7 @@ const Dog = require('./api/dogs/dogs-model');
 // ADOPTERS ENDPOINTS
 // ADOPTERS ENDPOINTS
 server.get('/api/adopters', (req, res) => {
-  Adopter.find(req.query)
-    .then(adopters => {
-      res.status(200).json(adopters);
-    })
-    .catch(error => {
-      console.log(error);
-      res.status(500).json({
-        message: 'Error retrieving the adopters',
-      });
-    });
+  
 });
 
 server.get('/api/adopters/:id', (req, res) => {
