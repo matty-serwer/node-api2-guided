@@ -1,6 +1,7 @@
 const express = require('express');
 const Adopter = require('./adopters-model');
 
+const router = express.Router();
 
 // router.get('/api/adopters', (req, res) => {
 //   // 1- pull stuff from req
