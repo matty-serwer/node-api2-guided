@@ -2,7 +2,7 @@ const express = require('express');
 
 const server = express();
 
-server.use(express.json()); // if req has json in body, 
+server.use(express.json()); // if req has json in body, it can be parsed and put inside req.body
 
 const Adopter = require('./api/adopters/adopters-model');
 const Dog = require('./api/dogs/dogs-model');
