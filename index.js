@@ -78,7 +78,7 @@ server.get('/api/adopters/:id/dogs', (req, res) => {
 
 server.post('/api/adopters', (req, res) => {
   if (!req.body.name || !req.body.email) {
-    res.status(400)
+    res.status(400).json({ message: 'name and email required!' })
   }
   Adopter.add(req.body)
     .then(adopter => {
