@@ -20,7 +20,7 @@ const router = express.Router();
 //     })
 // });
 
-router.get('/api/adopters', async (req, res) => {
+router.get('/', async (req, res) => {
   // 1- pull stuff from req
   const { query } = req
   try {
@@ -34,7 +34,7 @@ router.get('/api/adopters', async (req, res) => {
   }
 })
 
-router.get('/api/adopters/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   Adopter.findById(req.params.id)
     .then(adopter => {
       if (adopter) {
@@ -51,7 +51,7 @@ router.get('/api/adopters/:id', (req, res) => {
     });
 });
 
-router.get('/api/adopters/:id/dogs', (req, res) => {
+router.get('/:id/dogs', (req, res) => {
   Adopter.findDogs(req.params.id)
     .then(dogs => {
       if (dogs.length > 0) {
@@ -68,7 +68,7 @@ router.get('/api/adopters/:id/dogs', (req, res) => {
     });
 });
 
-router.post('/api/adopters', (req, res) => {
+router.post('/', (req, res) => {
   if (!req.body.name || !req.body.email) {
     res.status(400).json({ message: 'name and email required!' })
   }
