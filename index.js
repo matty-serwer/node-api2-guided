@@ -13,7 +13,7 @@ const Dog = require('./api/dogs/dogs-model');
 server.get('/api/adopters', (req, res) => {
   // 1- pull stuff from req
   // 2- interact with db
-  Adopter.find({})
+  Adopter.find({ limit: 10 })
     .then(stuff => {
       res.json(stuff)
     })
